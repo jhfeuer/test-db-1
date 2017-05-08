@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Production Returns Tracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<h1><%= link_to 'Active Returns', records_path %></h1>
+<h1><%= link_to 'Add Return', new_record_path %></h1>
 <body>
 
 <%= yield %>
