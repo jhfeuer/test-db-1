@@ -1,0 +1,1 @@
+json.extract! @record, :id, :serialNum, :product, :partNum, :removalDate, :owner, :status, :location, :resolveBy, :removalReason, :comments, :supplier, :utasPO, :pwPO, :qn, :resolved, :created_at, :updated_at

@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serialnum:</strong>
+  <%= @record.serialNum %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @record.product %>
+</p>
+
+<p>
+  <strong>Partnum:</strong>
+  <%= @record.partNum %>
+</p>
+
+<p>
+  <strong>Removaldate:</strong>
+  <%= @record.removalDate %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @record.owner %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @record.status %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @record.location %>
+</p>
+
+<p>
+  <strong>Resolveby:</strong>
+  <%= @record.resolveBy %>
+</p>
+
+<p>
+  <strong>Removalreason:</strong>
+  <%= @record.removalReason %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @record.comments %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @record.supplier %>
+</p>
+
+<p>
+  <strong>Utaspo:</strong>
+  <%= @record.utasPO %>
+</p>
+
+<p>
+  <strong>Pwpo:</strong>
+  <%= @record.pwPO %>
+</p>
+
+<p>
+  <strong>Qn:</strong>
+  <%= @record.qn %>
+</p>
+
+<p>
+  <strong>Resolved:</strong>
+  <%= @record.resolved %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

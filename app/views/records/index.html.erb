@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serialnum</th>
+      <th>Product</th>
+      <th>Partnum</th>
+      <th>Removaldate</th>
+      <th>Owner</th>
+      <th>Status</th>
+      <th>Location</th>
+      <th>Resolveby</th>
+      <th>Removalreason</th>
+      <th>Comments</th>
+      <th>Supplier</th>
+      <th>Utaspo</th>
+      <th>Pwpo</th>
+      <th>Qn</th>
+      <th>Resolved</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.serialNum %></td>
+        <td><%= record.product %></td>
+        <td><%= record.partNum %></td>
+        <td><%= record.removalDate %></td>
+        <td><%= record.owner %></td>
+        <td><%= record.status %></td>
+        <td><%= record.location %></td>
+        <td><%= record.resolveBy %></td>
+        <td><%= record.removalReason %></td>
+        <td><%= record.comments %></td>
+        <td><%= record.supplier %></td>
+        <td><%= record.utasPO %></td>
+        <td><%= record.pwPO %></td>
+        <td><%= record.qn %></td>
+        <td><%= record.resolved %></td>
+        <td><%= link_to 'Show', record %></td>
+        <td><%= link_to 'Edit', edit_record_path(record) %></td>
+        <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Record', new_record_path %>

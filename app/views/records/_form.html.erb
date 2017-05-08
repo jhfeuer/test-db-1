@@ -1,0 +1,92 @@
+<%= form_for(record) do |f| %>
+  <% if record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :serialNum %>
+    <%= f.text_field :serialNum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product %>
+    <%= f.text_field :product %>
+  </div>
+
+  <div class="field">
+    <%= f.label :partNum %>
+    <%= f.text_field :partNum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :removalDate %>
+    <%= f.date_select :removalDate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :owner %>
+    <%= f.text_field :owner %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :resolveBy %>
+    <%= f.date_select :resolveBy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :removalReason %>
+    <%= f.text_area :removalReason %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>
+  </div>
+
+  <div class="field">
+    <%= f.label :supplier %>
+    <%= f.text_field :supplier %>
+  </div>
+
+  <div class="field">
+    <%= f.label :utasPO %>
+    <%= f.text_field :utasPO %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pwPO %>
+    <%= f.text_field :pwPO %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qn %>
+    <%= f.text_field :qn %>
+  </div>
+
+  <div class="field">
+    <%= f.label :resolved %>
+    <%= f.check_box :resolved %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

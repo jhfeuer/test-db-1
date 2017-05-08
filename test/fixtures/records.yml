@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serialNum: MyString
+  product: MyString
+  partNum: MyString
+  removalDate: 2017-05-08
+  owner: MyString
+  status: MyString
+  location: MyString
+  resolveBy: 2017-05-08
+  removalReason: MyText
+  comments: MyText
+  supplier: MyString
+  utasPO: MyString
+  pwPO: MyString
+  qn: MyString
+  resolved: false
+
+two:
+  serialNum: MyString
+  product: MyString
+  partNum: MyString
+  removalDate: 2017-05-08
+  owner: MyString
+  status: MyString
+  location: MyString
+  resolveBy: 2017-05-08
+  removalReason: MyText
+  comments: MyText
+  supplier: MyString
+  utasPO: MyString
+  pwPO: MyString
+  qn: MyString
+  resolved: false
