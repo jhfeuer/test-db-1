@@ -6,7 +6,19 @@ class RecordsController < ApplicationController
   def index
     @records = Record.all
   end
+  
+  def resolved
+    @records = Record.where(resolved: true)
+  end
 
+  def active
+    @records = Record.where(resolved: false)
+  end
+  
+  def search snQuery = nil, productQuery = nil, supplierQuery = nil
+    @records = Record.where(supplier: params[supplierQuery])
+  end
+  
   # GET /records/1
   # GET /records/1.json
   def show

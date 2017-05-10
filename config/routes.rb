@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'resolved' => 'records#resolved'
+  get 'records/resolved'
+  get 'active' => 'records#active'
+  get 'records/active'
+  get 'search' => 'records#search'
+  get 'records/search'
   resources :records
   root 'records#index'
   # The priority is based upon order of creation: first created -> highest priority.
