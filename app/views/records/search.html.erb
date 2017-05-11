@@ -1,15 +1,6 @@
 <%= form_for(:record, method: "get") do |f| %>
-<div>
-  <%= f.label(:snQuery, "Serial Number:") %>
-  <%= f.text_field(:snQuery) %>
-  <%= f.label(:productQuery, "Product:") %>
-  <%= f.text_field(:productQuery) %>
-  <%= f.label(:supplierQuery, "Supplier:") %>
-  <%= f.text_field(:supplierQuery) %>
-  <%= f.submit("Search", :name => nil) %>
-</div>
 
-<table>
+<table class="boo">
   <thead>
     <tr>
       <th> <%= f.label(:snQuery, "Serial Number:") %></th>
@@ -25,6 +16,8 @@
     </tr>
   </tbody>
 </table>
-<%= f.submit("Search", :name => nil) %>
+<div class="foo">
+  <%= f.submit("Search", :name => nil) %>
+</div>
 <%= render 'table' %>
 <% end %>

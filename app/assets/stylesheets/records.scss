@@ -2,9 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.boo th, .boo td {
+    border: 1px solid white;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
 table, th, td {
     border: 1px solid black;
-    padding: 15px;
+    padding: 5px;
     text-align: center;
     margin: 0 auto;
+}
+
+.foo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
 }
