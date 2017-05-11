@@ -5,6 +5,7 @@
       <th>Product</th>
       <th>Part Number</th>
       <th>Removal Date</th>
+      <th>Supplier</th>
       <th>Owner</th>
       <th colspan="3"></th>
     </tr>
@@ -17,6 +18,7 @@
         <td><%= record.product %></td>
         <td><%= record.partNum %></td>
         <td><%= record.removalDate %></td>
+        <td><%= record.supplier %></td>
         <td><%= record.owner %></td>
         <td><%= link_to 'Show', record %></td>
         <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,6 +5,12 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @records = Record.all
+    
+    respond_to do |format|
+      format.html
+      format.csv { render text: @records.to_csv }
+      format.xls 
+    end
   end
   
   def resolved
@@ -15,8 +21,13 @@ class RecordsController < ApplicationController
     @records = Record.where(resolved: false)
   end
   
-  def search snQuery = nil, productQuery = nil, supplierQuery = nil
-    @records = Record.where(supplier: params[supplierQuery])
+  def search
+    @records = Record.all
+    if params.has_key? :record
+      then @records = Record.matchesSearch(params[:record][:snQuery], 
+                                           params[:record][:productQuery], 
+                                           params[:record][:supplierQuery])
+    end
   end
   
   # GET /records/1

@@ -1,13 +1,30 @@
-<%= form_tag(search_path, method: "get") do %>
+<%= form_for(:record, method: "get") do |f| %>
 <div>
-  <%= label_tag(:snQuery, "Serial Number:") %>
-  <%= text_field_tag(:snQuery) %>
-  <%= label_tag(:productQuery, "Product:") %>
-  <%= text_field_tag(:productQuery) %>
-  <%= label_tag(:supplierQuery, "Supplier:") %>
-  <%= text_field_tag(:supplierQuery) %>
-  <%= submit_tag("Search", :name => nil) %>
+  <%= f.label(:snQuery, "Serial Number:") %>
+  <%= f.text_field(:snQuery) %>
+  <%= f.label(:productQuery, "Product:") %>
+  <%= f.text_field(:productQuery) %>
+  <%= f.label(:supplierQuery, "Supplier:") %>
+  <%= f.text_field(:supplierQuery) %>
+  <%= f.submit("Search", :name => nil) %>
 </div>
 
+<table>
+  <thead>
+    <tr>
+      <th> <%= f.label(:snQuery, "Serial Number:") %></th>
+      <th> <%= f.label(:productQuery, "Product:") %></th>
+      <th> <%= f.label(:supplierQuery, "Supplier:") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <%= f.text_field(:snQuery) %> </td>
+      <td> <%= f.text_field(:productQuery) %> </td>
+      <td> <%= f.text_field(:supplierQuery) %> </td>
+    </tr>
+  </tbody>
+</table>
+<%= f.submit("Search", :name => nil) %>
 <%= render 'table' %>
 <% end %>
