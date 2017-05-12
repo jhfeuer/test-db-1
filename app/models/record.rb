@@ -1,9 +1,10 @@
 class Record < ApplicationRecord
-    validates :serialNum, presence: true
-    validates :product, presence: true
+    validates :serialNum, length: {maximum: 16}, presence: true
+    validates :product, length: {maximum: 16}, presence: true
     validates :removalDate, presence: true
-    validates :supplier, presence: true
-    validates :partNum, presence: true
+    validates :supplier, length: {maximum: 16}, presence: true
+    validates :owner, length: {maximum: 16}, presence: true
+    validates :partNum, length: {maximum: 16}, presence: true
     
     def self.to_csv(options = {})
         all_headers = Array.[]("Serial Number", "Product", "Part Number", "Removal Date", "Owner", "Status", "Location", "Resolve by", "Removal Reason", "Comments", "Supplier", "PW PO", "UTAS PO", "QN", "Resolved?")

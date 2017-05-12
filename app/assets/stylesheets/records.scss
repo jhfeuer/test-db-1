@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.boo th, .boo td {
+.boo, .boo th, .boo td, .boo tr div {
     border: 1px solid white;
     padding: 10px;
     padding-bottom: 0px;
@@ -13,6 +13,11 @@ table, th, td {
     padding: 5px;
     text-align: center;
     margin: 0 auto;
+}
+
+textarea {
+  width: 500px;
+  height: 400px;
 }
 
 .foo {
