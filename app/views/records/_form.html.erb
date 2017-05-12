@@ -89,6 +89,19 @@
   <table class="boo">
     <tr>
       <th class="field">
+      <%= f.label :actionRequiredBy, "Action Required" %>
+      </th>
+    </tr>
+    <tr>
+      <td class="field">
+        <%= f.text_area :actionRequiredBy, class: "actionReq" %>
+      </td>
+    </tr>
+  </table>
+  
+  <table class="boo">
+    <tr>
+      <th class="field">
       <%= f.label :removalReason, "Removal Reason" %>
       </th>
       <th class="field">
