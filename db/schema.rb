@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512170544) do
+ActiveRecord::Schema.define(version: 20170515174400) do
 
   create_table "records", force: :cascade do |t|
     t.string   "serialNum"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 20170512170544) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.text     "actionRequiredBy"
+    t.string   "d3QN"
+    t.string   "v2QN"
+    t.string   "removalLocation"
+    t.string   "program"
+    t.date     "dateResolved"
   end
 
 end

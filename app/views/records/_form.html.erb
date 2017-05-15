@@ -19,6 +19,12 @@
       <th class="field">
       <%= f.label :removalDate, "Removal Date" %>
       </th>
+      <th class="field">
+      <%= f.label :removalLocation, "Removal Location" %>
+      </th>
+      <th class="field">
+      <%= f.label :program, "Program" %>
+      </th>
     </tr>
     <tr>
       <td class="field">
@@ -26,6 +32,12 @@
       </td>
       <td class="field">
         <%= f.date_select :removalDate %>
+      </td>
+      <td class="field">
+        <%= f.text_field :removalLocation %>
+      </td>
+      <td class="field">
+        <%= f.text_field :program %>
       </td>
     </tr>
   </table>
@@ -70,7 +82,13 @@
       <%= f.label :status %>
       </th>
       <th class="field">
-      <%= f.label :qn, "QN" %>
+      <%= f.label :qn, "PW QN" %>
+      </th>
+      <th class="field">
+      <%= f.label :d3QN, "UTAS D3 QN" %>
+      </th>
+      <th class="field">
+      <%= f.label :v2QN, "UTAS V2 QN" %>
       </th>
     </tr>
     <tr>
@@ -82,6 +100,12 @@
       </td>
       <td class="field">
         <%= f.text_field :qn %>
+      </td>
+      <td class="field">
+        <%= f.text_field :d3QN %>
+      </td>
+      <td class="field">
+        <%= f.text_field :v2QN %>
       </td>
     </tr>
   </table>

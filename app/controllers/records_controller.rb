@@ -6,11 +6,7 @@ class RecordsController < ApplicationController
   def index
     @records = Record.all
     
-    respond_to do |format|
-      format.html
-      format.csv { render text: @records.to_csv }
-      format.xls 
-    end
+    convert_to_excel
   end
   
   def resolved
@@ -88,6 +84,15 @@ class RecordsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_record
       @record = Record.find(params[:id])
+    end
+    
+    def convert_to_excel
+      respond_to do |format|
+      format.html
+      format.csv { render text: @records.to_csv }
+      format.xls 
+    end
+    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

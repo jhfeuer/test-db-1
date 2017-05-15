@@ -23,7 +23,7 @@
         <Cell><Data ss:Type="String">QN</Data></Cell>
         <Cell><Data ss:Type="String">Resolved?</Data></Cell>
       </Row>
-    <% @records.each do |record| %>
+    <% recordSet.each do |record| %>
       <Row>
         <Cell><Data ss:Type="String"><%= record.serialNum %></Data></Cell>
         <Cell><Data ss:Type="String"><%= record.product %></Data></Cell>

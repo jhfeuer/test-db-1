@@ -6,6 +6,7 @@ class Record < ApplicationRecord
     validates :owner, length: {maximum: 16}, presence: true
     validates :partNum, length: {maximum: 16}, presence: true
     
+    # This converts to csv with explicit column headings and each member explicit as well
     def self.to_csv(options = {})
         all_headers = Array.[]("Serial Number", "Product", "Part Number", "Removal Date", "Owner", "Status", "Location", "Resolve by", "Removal Reason", "Comments", "Supplier", "PW PO", "UTAS PO", "QN", "Resolved?")
         cols_of_interest = Array.[]('serialNum', 'product', 'partNum', 'removalDate', 'owner', 'status', 'location', 'resolveBy', 'removalReason', 'comments', 'supplier', 'pwPO', 'utasPO', 'qn', 'resolved')

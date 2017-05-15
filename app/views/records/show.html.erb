@@ -19,15 +19,39 @@
 
 <table class="due">
   <tr>
-    <th>Location</th>
+    <th>Removal Location</th>
+    <th>Program</th>
+  </tr>
+  <tr>
+    <td> <%= @record.removalLocation %> </td>
+    <td> <%= @record.program %> </td>
+  </tr>
+</table>
+
+<table class="due">
+  <tr>
+    <th>Current Location</th>
     <th>Status</th>
-    <th>QN</th>
+    <th>PW QN</th>
+    <th>UTAS D3</th>
+    <th>UTAS V2</th>
   </tr>
   <tr>
     <td> <%= @record.location %> </td>
     <td> <%= @record.status %> </td>
     <td> <%= @record.qn %> </td>
+    <td> <%= @record.d3QN %> </td>
+    <td> <%= @record.v2QN %> </td>
   </tr>
+</table>
+
+<table class="boo">
+    <tr>
+      <th>Action Required</th>
+    </tr>
+    <tr>
+      <td> <%= @record.actionRequiredBy %> </td>
+    </tr>
 </table>
 
 <table class="due">

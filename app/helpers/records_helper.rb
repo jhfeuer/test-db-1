@@ -16,6 +16,6 @@ module RecordsHelper
       then return Record.where(supplier: supplierIn)
     else return Record.all
     end
-    
   end
+  
 end

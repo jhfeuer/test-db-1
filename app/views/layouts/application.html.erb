@@ -6,11 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<h1>
+<header>
   <%= link_to 'All Returns', records_path %> | <%= link_to 'Active Returns', '/records/active' %> 
   | <%= link_to 'Resolved Returns', '/records/resolved' %> | <%= link_to 'Search Returns', '/records/search' %>
     | <%= link_to 'Add Return', new_record_path %>
-</h1>
+</header>
 
 <body>
 
