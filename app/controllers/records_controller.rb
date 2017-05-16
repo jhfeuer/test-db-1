@@ -4,25 +4,29 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    @records = Record.all.order(:product, :removalDate)
     
-    convert_to_excel
+    convert_to_excel_option
   end
   
   def resolved
-    @records = Record.where(resolved: true)
+    @records = Record.where(resolved: true).order(:product, :removalDate)
+    
+    convert_to_excel_option
   end
 
   def active
-    @records = Record.where(resolved: false)
+    @records = Record.where(resolved: false).order(:product, :removalDate)
+    
+    convert_to_excel_option
   end
   
   def search
-    @records = Record.all
+    @records = Record.all.order(:product, :removalDate)
     if params.has_key? :record
       then @records = Record.matchesSearch(params[:record][:snQuery], 
                                            params[:record][:productQuery], 
-                                           params[:record][:supplierQuery])
+                                           params[:record][:supplierQuery]).order(:product, :removalDate)
     end
   end
   
@@ -86,11 +90,12 @@ class RecordsController < ApplicationController
       @record = Record.find(params[:id])
     end
     
-    def convert_to_excel
+    # Each function that calls this MUST also have a corresponding xlsx view
+    def convert_to_excel_option
       respond_to do |format|
       format.html
       format.csv { render text: @records.to_csv }
-      format.xls 
+      format.xlsx
     end
     
     end

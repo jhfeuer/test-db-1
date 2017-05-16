@@ -1,5 +1,5 @@
 <p>
   Download:
-  <%= link_to "CSV", records_path(format: "csv") %> |
-  <%= link_to "Excel", records_path(format: "xls") %>
+  <%= link_to "CSV", "#{request.original_url}.csv" %> | 
+  <%= link_to "Excel", "#{request.original_url}.xlsx" %>
 </p>

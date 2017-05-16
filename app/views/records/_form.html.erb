@@ -56,6 +56,9 @@
       <th class="field">
       <%= f.label :owner %>
       </th>
+      <th class="field">
+      <%= f.label :status %>
+      </th>
     </tr>
     <tr>
       <td class="field">
@@ -70,17 +73,14 @@
       <td class="field">
         <%= f.text_field :owner %>
       </td>
+      <td class="field">
+        <%= select("record", "status", Record::STATUSES, {include_blank: true}) %>
+      </td>
     </tr>
   </table>
 
   <table class="boo">
     <tr>
-      <th class="field">
-      <%= f.label :location %>
-      </th>
-      <th class="field">
-      <%= f.label :status %>
-      </th>
       <th class="field">
       <%= f.label :qn, "PW QN" %>
       </th>
@@ -90,14 +90,14 @@
       <th class="field">
       <%= f.label :v2QN, "UTAS V2 QN" %>
       </th>
+      <th class="field">
+      <%= f.label :pwPO, "PW PO" %>
+      </th>
+      <th class="field">
+      <%= f.label :utasPO, "UTAS PO" %>
+      </th>
     </tr>
     <tr>
-      <td class="field">
-        <%= f.text_field :location %>
-      </td>
-      <td class="field">
-        <%= f.text_field :status %>
-      </td>
       <td class="field">
         <%= f.text_field :qn %>
       </td>
@@ -106,6 +106,12 @@
       </td>
       <td class="field">
         <%= f.text_field :v2QN %>
+      </td>
+      <td class="field">
+        <%= f.text_field :pwPO %>
+      </td>
+      <td class="field">
+        <%= f.text_field :utasPO %>
       </td>
     </tr>
   </table>
