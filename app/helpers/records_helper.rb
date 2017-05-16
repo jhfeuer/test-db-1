@@ -1,21 +1,18 @@
 module RecordsHelper
-  def Record::matchesSearch(snIn = nil, productIn = nil, supplierIn = nil)
-    if !snIn.empty? && !productIn.empty? && !supplierIn.empty?
-      then return Record.where(serialNum: snIn, product: productIn, supplier: supplierIn)
-    elsif !productIn.empty? && !supplierIn.empty?
-      then return Record.where(product: productIn, supplier: supplierIn)
-    elsif !snIn.empty? && !supplierIn.empty?
-      then return Record.where(serialNum: sn_in, supplier: supplierIn)
-    elsif !snIn.empty? && !productIn.empty?
-      then return Record.where(serialNum: snIn, product: productIn)
-    elsif !snIn.empty?
-      then return Record.where(serialNum: snIn)
-    elsif !productIn.empty?
-      then return Record.where(product: productIn)
-    elsif !supplierIn.empty?
-      then return Record.where(supplier: supplierIn)
-    else return Record.all
+  def Record::matchesSearch(snIn = "", productIn = "", supplierIn = "", statusIn = "", records = Record.all)
+    if !snIn.empty?
+      then records = records.serialNum(snIn)
     end
+    if !productIn.empty?
+      then records = records.product(productIn)
+    end
+    if !supplierIn.empty?
+      then records = records.supplier(supplierIn)
+    end
+    if !statusIn.empty?
+      then records = records.status(statusIn)
+    end
+    
+    return records
   end
-  
 end

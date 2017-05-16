@@ -1,4 +1,10 @@
 class Record < ApplicationRecord
+    
+    scope :serialNum, -> (serialNum) { where serialNum: serialNum }
+    scope :supplier, -> (supplier) { where supplier: supplier }
+    scope :product, -> (product) { where product: product }
+    scope :status, -> (status) { where status: status }
+    
     validates :serialNum, length: {maximum: 16}, presence: true
     validates :product, length: {maximum: 16}, presence: true
     validates :removalDate, presence: true
@@ -6,7 +12,7 @@ class Record < ApplicationRecord
     validates :owner, length: {maximum: 16}, presence: true
     validates :partNum, length: {maximum: 16}, presence: true
     
-    STATUSES = { testing: "testing", test2: "testing2" }
+    STATUSES = [ "Waiting to ship", "Shipped", "Received" ]
     PRODUCTS = { foo: "Foo bar", boo: "Boo far" }
     
     # This converts to csv with explicit column headings and each member explicit as well

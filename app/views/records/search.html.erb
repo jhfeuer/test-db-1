@@ -6,13 +6,15 @@
       <th> <%= f.label(:snQuery, "Serial Number:") %></th>
       <th> <%= f.label(:productQuery, "Product:") %></th>
       <th> <%= f.label(:supplierQuery, "Supplier:") %></th>
+      <th> <%= f.label(:statusQuery, "Status:") %> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td> <%= f.text_field(:snQuery) %> </td>
-      <td> <%= f.text_field(:productQuery) %> </td>
-      <td> <%= f.text_field(:supplierQuery) %> </td>
+      <td> <%= select("record", :productQuery, (Record.all.collect{|r| r.product}).uniq.sort, { include_blank: true }) %> </td>
+      <td> <%= select("record", :supplierQuery, (Record.all.collect{|r| r.supplier}).uniq.sort, { include_blank: true }) %> </td>
+      <td> <%= select("record", :statusQuery, (Record.all.collect{|r| r.status}).uniq.sort, { include_blank: true }) %> </td>
     </tr>
   </tbody>
 </table>

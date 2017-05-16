@@ -26,7 +26,8 @@ class RecordsController < ApplicationController
     if params.has_key? :record
       then @records = Record.matchesSearch(params[:record][:snQuery], 
                                            params[:record][:productQuery], 
-                                           params[:record][:supplierQuery]).order(:product, :removalDate)
+                                           params[:record][:supplierQuery],
+                                           params[:record][:statusQuery]).order(:product, :removalDate)
     end
   end
   
