@@ -13,7 +13,6 @@ class Record < ApplicationRecord
     validates :partNum, length: {maximum: 16}, presence: true
     
     STATUSES = [ "Waiting to ship", "Shipped", "Received" ]
-    PRODUCTS = { foo: "Foo bar", boo: "Boo far" }
     
     # This converts to csv with explicit column headings and each member explicit as well
     def self.to_csv(options = {})

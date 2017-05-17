@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Part Name:</strong>
+  <%= @product.prodName %>
+</p>
+
+<p>
+  <strong>In-House Part Number:</strong>
+  <%= @product.prodNum %>
+</p>
+
+<p>
+  <strong>Supplier Part Number:</strong>
+  <%= @product.prodSupplierNum %>
+</p>
+
+<p>
+  <strong>Part's In-House Owners:</strong>
+  <%= @product.prodUTASowners %>
+</p>
+
+<p>
+  <strong>Part's Supplier:</strong>
+  <%= @product.prodSupplier %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

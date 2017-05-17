@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516185920) do
+ActiveRecord::Schema.define(version: 20170517130032) do
 
   create_table "products", force: :cascade do |t|
     t.string   "prodName"
-    t.string   "prodPartNum"
+    t.string   "prodNum"
+    t.string   "prodSupplierNum"
+    t.string   "prodUTASowners"
     t.string   "prodSupplier"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "records", force: :cascade do |t|

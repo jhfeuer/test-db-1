@@ -62,7 +62,7 @@
     </tr>
     <tr>
       <td class="field">
-        <%= f.text_field :product %>
+        <%= select("record", "product", (Product.all.collect { |p| p.prodName}).uniq.sort , {include_blank: true}) %>
       </td>
       <td class="field">
         <%= f.text_field :partNum %>
@@ -78,6 +78,11 @@
       </td>
     </tr>
   </table>
+  
+  <div id="prodPathForm">
+   <%= link_to("Don't see a product or associated part number here? View, edit, 
+       and add to the list of parts the database tracks", products_path) %>
+  </div>
 
   <table class="boo">
     <tr>

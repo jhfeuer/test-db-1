@@ -4,19 +4,22 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all.order(:product, :removalDate)
+    @records = Record.all
+    @records = @records.order(:product, :removalDate)
 
     convert_to_excel_option
   end
   
   def resolved
-    @records = Record.where(resolved: true).order(:product, :removalDate)
+    @records = Record.where(resolved: true)
+    @records = @records.order(:product, :removalDate)
     
     convert_to_excel_option
   end
 
   def active
-    @records = Record.where(resolved: false).order(:product, :removalDate)
+    @records = Record.where(resolved: false)
+    @records = @records.order(:product, :removalDate)
     
     convert_to_excel_option
   end
@@ -103,6 +106,8 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:serialNum, :product, :partNum, :removalDate, :owner, :status, :location, :resolveBy, :removalReason, :comments, :supplier, :utasPO, :pwPO, :qn, :resolved)
+      params.require(:record).permit(:serialNum, :product, :partNum, 
+      :removalDate, :owner, :status, :location, :resolveBy, :removalReason, 
+      :comments, :supplier, :utasPO, :pwPO, :qn, :resolved)
     end
 end
