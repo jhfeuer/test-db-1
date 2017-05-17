@@ -6,4 +6,5 @@ class AddLotsToRecord < ActiveRecord::Migration[5.0]
     add_column :records, :program, :string
     add_column :records, :dateResolved, :date
   end
+  
 end

@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @records = Record.all.order(:product, :removalDate)
-    
+
     convert_to_excel_option
   end
   

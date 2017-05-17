@@ -17,8 +17,17 @@ class Record < ApplicationRecord
     
     # This converts to csv with explicit column headings and each member explicit as well
     def self.to_csv(options = {})
-        all_headers = Array.[]("Serial Number", "Removal Date", "Removal Location", "Program", "Product", "Part Number", "Supplier", "Owner", "Status", "PW QN", "UTAS D3 QN", "UTAS V2 QN", "PW PO", "UTAS PO", "Action Required", "Removal Reason", "Comments", "Resolved?")
-        cols_of_interest = Array.[]('serialNum', 'removalDate', 'removalLocation', 'program', 'product', 'partNum', 'supplier', 'owner', 'status', 'pwQN', 'd3QN', 'v2QN', 'pwPO', 'utasPO', 'actionReq', 'removalReason', 'comments', 'resolved')
+        
+        all_headers = Array.[]("Serial Number", "Removal Date", 
+        "Removal Location", "Program", "Product", "Part Number", "Supplier", 
+        "Owner", "Status", "PW QN", "UTAS D3 QN", "UTAS V2 QN", "PW PO", "UTAS PO", 
+        "Action Required", "Removal Reason", "Comments", "Resolved?")
+        
+        cols_of_interest = Array.[]('serialNum', 'removalDate', 'removalLocation', 
+        'program', 'product', 'partNum', 'supplier', 'owner', 'status', 'pwQN', 
+        'd3QN', 'v2QN', 'pwPO', 'utasPO', 'actionReq', 'removalReason', 
+        'comments', 'resolved')
+        
         CSV.generate(options) do |csv|
             csv << all_headers
             all.each do |record|
@@ -26,6 +35,4 @@ class Record < ApplicationRecord
             end
         end
     end
-    
-    
 end
