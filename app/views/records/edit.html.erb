@@ -4,3 +4,5 @@
 
 <%= link_to 'Show', @record %> |
 <%= link_to 'Back', records_path %>
+
+<%= render partial: "changelog", locals: {record: @record} %>

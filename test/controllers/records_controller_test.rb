@@ -4,6 +4,7 @@ class RecordsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @record = records(:one)
   end
+  
 
   test "should get index" do
     get records_url
