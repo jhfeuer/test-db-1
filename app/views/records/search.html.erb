@@ -12,9 +12,9 @@
   <tbody>
     <tr>
       <td> <%= f.text_field(:snQuery) %> </td>
-      <td> <%= select("record", :productQuery, (Record.all.collect{|r| r.product}).uniq.sort, { include_blank: true }) %> </td>
-      <td> <%= select("record", :supplierQuery, (Record.all.collect{|r| r.supplier}).uniq.sort, { include_blank: true }) %> </td>
-      <td> <%= select("record", :statusQuery, (Record.all.collect{|r| r.status}).uniq.sort, { include_blank: true }) %> </td>
+      <td> <%= select("record", :productQuery, (Product.all.collect{|r| r.prodName}).uniq.sort, { include_blank: true }) %> </td>
+      <td> <%= select("record", :supplierQuery, (Product.all.collect{|r| r.prodSupplier}).uniq.sort, { include_blank: true }) %> </td>
+      <td> <%= select("record", :statusQuery, Record::STATUSES, { include_blank: true }) %> </td>
     </tr>
   </tbody>
 </table>
@@ -23,3 +23,5 @@
 </div>
 <%= render 'table' %>
 <% end %>
+
+<%= render 'xlsx_download_footer' %>

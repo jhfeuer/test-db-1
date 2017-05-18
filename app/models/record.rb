@@ -40,7 +40,7 @@ class Record < ApplicationRecord
     end
     
     def set_defaults
-        self.fullChangelog = "All previous changes (organized most to least recent): "
+        self.fullChangelog = ""
         self.serialNum = "" if !self.serialNum
         self.removalDate = "" if !self.removalDate
         self.removalLocation = "" if !self.removalLocation

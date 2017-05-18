@@ -108,6 +108,7 @@ class RecordsController < ApplicationController
     def record_params
       params.require(:record).permit(:serialNum, :product, :partNum, 
       :removalDate, :owner, :status, :location, :resolveBy, :removalReason, 
-      :comments, :supplier, :utasPO, :pwPO, :qn, :resolved)
+      :comments, :supplier, :utasPO, :pwPO, :qn, :resolved, :removalLocation,
+      :program, :d3QN, :v2QN, :actionRequiredBy)
     end
 end

@@ -7,8 +7,6 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.date :removalDate
       t.string :owner
       t.string :status
-      t.string :location
-      t.date :resolveBy
       t.text :removalReason
       t.text :comments
       t.string :supplier
@@ -16,6 +14,13 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.string :pwPO
       t.string :qn
       t.boolean :resolved
+      t.text :actionRequiredBy
+      t.string :d3QN
+      t.string :v2QN
+      t.string :removalLocation
+      t.string :program
+      t.date :dateResolved
+      t.text :fullChangelog
 
       t.timestamps
     end

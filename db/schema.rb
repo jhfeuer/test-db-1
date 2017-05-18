@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518133148) do
+ActiveRecord::Schema.define(version: 20170517130032) do
 
   create_table "products", force: :cascade do |t|
     t.string   "prodName"
@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 20170518133148) do
     t.date     "removalDate"
     t.string   "owner"
     t.string   "status"
-    t.string   "location"
-    t.date     "resolveBy"
     t.text     "removalReason"
     t.text     "comments"
     t.string   "supplier"
@@ -38,8 +36,6 @@ ActiveRecord::Schema.define(version: 20170518133148) do
     t.string   "pwPO"
     t.string   "qn"
     t.boolean  "resolved"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
     t.text     "actionRequiredBy"
     t.string   "d3QN"
     t.string   "v2QN"
@@ -47,6 +43,8 @@ ActiveRecord::Schema.define(version: 20170518133148) do
     t.string   "program"
     t.date     "dateResolved"
     t.text     "fullChangelog"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
