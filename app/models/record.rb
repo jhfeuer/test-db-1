@@ -5,12 +5,13 @@ class Record < ApplicationRecord
     scope :product, -> (product) { where product: product }
     scope :status, -> (status) { where status: status }
     
-    validates :serialNum, length: {maximum: 16}, presence: true
+    validates :serialNum, length: {maximum: 16}
     validates :product, length: {maximum: 16}, presence: true
     validates :removalDate, presence: true
+    validates :qn, presence: true
     validates :supplier, length: {maximum: 16}, presence: true
-    validates :owner, length: {maximum: 16}, presence: true
-    validates :partNum, length: {maximum: 16}, presence: true
+    validates :owner, length: {maximum: 16}
+    validates :partNum, length: {maximum: 16}
     
     STATUSES = [ "Waiting to ship", "Shipped", "Received" ]
     

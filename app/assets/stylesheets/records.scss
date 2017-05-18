@@ -3,25 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // really should have named these better, my bad
+
+// this is for the search view and _form partial
 .boo, .boo th, .boo td, .boo tr div {
-    border: 1px solid white;
     padding: 10px;
     padding-bottom: 0px;
+    tr:nth-child(odd) {background: #FFF}
 }
 
+// this is general
 table, th, td {
-    border: 1px solid black;
     padding: 5px;
     text-align: center;
     margin: 0 auto;
+    tr:nth-child(even) {background: #FFF}
+    tr:nth-child(odd) {background: #CCC}
 }
 
+// this is for the "action required" box on the _form partial
 .actionReq {
     width: 300px;
     height: 60px;
 }
 
-// comments and removal reason
+// this is for the "comments" and "removal reason" boxes on the _form partial
 textarea {
   width: 500px;
   height: 300px;
@@ -31,14 +36,15 @@ textarea {
     width: 1000px;
 }
 
+// this is for the "show" view table
 .due, .due th, .due td {
     padding: 20px;
     padding-top: 10px;
     padding-left: 40px;
     padding-right: 40px;
     text-align: center;
-    border: 1px solid white;
     margin: 0 auto;
+    tr:nth-child(odd) {background: #FFF}
 }
 
 .foo {
@@ -47,6 +53,7 @@ textarea {
     text-align: center;
 }
 
+// for the product path link in the _form partial
 #prodPathForm {
     text-align: center;
 }

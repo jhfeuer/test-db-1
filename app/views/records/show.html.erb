@@ -3,26 +3,13 @@
 <table class="due">
   <tr>
     <th>Serial Number</th>
-    <th>Product</th>
-    <th>Part Number</th>
-    <th>Supplier</th>
-    <th>Owner</th>
-  </tr>
-  <tr>
-    <td> <%= @record.serialNum %> </td>
-    <td> <%= @record.product %> </td>
-    <td> <%= @record.partNum %> </td>
-    <td> <%= @record.supplier %> </td>
-    <td> <%= @record.owner %> </td>
-  </tr>
-</table>
-
-<table class="due">
-  <tr>
+    <th>Removal Date</th>
     <th>Removal Location</th>
     <th>Program</th>
   </tr>
   <tr>
+    <td> <%= @record.serialNum %> </td>
+    <td> <%= @record.removalDate %> </td>
     <td> <%= @record.removalLocation %> </td>
     <td> <%= @record.program %> </td>
   </tr>
@@ -30,18 +17,35 @@
 
 <table class="due">
   <tr>
-    <th>Current Location</th>
+    <th>Product</th>
+    <th>Part Number</th>
+    <th>Supplier</th>
+    <th>Owner</th>
     <th>Status</th>
-    <th>PW QN</th>
-    <th>UTAS D3</th>
-    <th>UTAS V2</th>
   </tr>
   <tr>
-    <td> <%= @record.location %> </td>
+    <td> <%= @record.product %> </td>
+    <td> <%= @record.partNum %> </td>
+    <td> <%= @record.supplier %> </td>
+    <td> <%= @record.owner %> </td>
     <td> <%= @record.status %> </td>
+  </tr>
+</table>
+
+<table class="due">
+  <tr>
+    <th>PW QN</th>
+    <th>UTAS D3 QN</th>
+    <th>UTAS V2 QN</th>
+    <th>pwPO</th>
+    <th>utasPO</th>
+  </tr>
+  <tr>
     <td> <%= @record.qn %> </td>
     <td> <%= @record.d3QN %> </td>
     <td> <%= @record.v2QN %> </td>
+    <td> <%= @record.pwPO %> </td>
+    <td> <%= @record.utasPO %> </td>
   </tr>
 </table>
 

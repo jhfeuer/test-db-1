@@ -1,5 +1,8 @@
 <table class="display">
-  <thead>
+
+
+  <tbody>
+    
     <tr>
       <th></th>
       <th>Serial Number</th>
@@ -10,9 +13,7 @@
       <th>Supplier</th>
       <th>Status</th>
     </tr>
-  </thead>
-
-  <tbody>
+    
     <% @records.each do |record| %>
       <tr>
         <td><%= link_to 'Show', record %></td>

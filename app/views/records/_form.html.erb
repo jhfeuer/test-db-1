@@ -65,10 +65,10 @@
         <%= select("record", "product", (Product.all.collect { |p| p.prodName}).uniq.sort , {include_blank: true}) %>
       </td>
       <td class="field">
-        <%= f.text_field :partNum %>
+        <%= select("record", "partNum", (Product.all.collect { |p| p.prodNum}).uniq.sort , {include_blank: true}) %>
       </td>
       <td class="field">
-        <%= f.text_field :supplier %>
+        <%= select("record", "supplier", (Product.all.collect { |p| p.prodSupplier}).uniq.sort , {include_blank: true}) %>
       </td>
       <td class="field">
         <%= f.text_field :owner %>
