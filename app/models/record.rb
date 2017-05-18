@@ -40,7 +40,7 @@ class Record < ApplicationRecord
     end
     
     def set_defaults
-        self.fullChangelog = "All previous changes: "
+        self.fullChangelog = "All previous changes (organized most to least recent): "
         self.serialNum = "" if !self.serialNum
         self.removalDate = "" if !self.removalDate
         self.removalLocation = "" if !self.removalLocation
@@ -60,12 +60,137 @@ class Record < ApplicationRecord
         
     end
     
+    # I tried to come up with a fancier/refactored way to do this but couldn't 
+    # figure it out while still using _was
     def log_changes 
+        if self.comments_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Comments " +  
+                " updated on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.removalReason_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Removal reason " +  
+                " updated on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.actionRequiredBy_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Action Required " +  
+                " updated on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.utasPO_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>UTAS PO changed from:  " + 
+                "#{self.utasPO_was}" + "     to  " + "#{self.utasPO}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.pwPO_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>PW PO changed from:  " + 
+                "#{self.pwPO_was}" + "    to  " + "#{self.pwPO}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.v2QN_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>UTAS V2 QN changed from:  " + 
+                "#{self.v2QN_was}" + "    to  " + "#{self.v2QN}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.d3QN_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>UTAS D3 QN changed from:  " + 
+                "#{self.d3QN_was}" + "    to  " + "#{self.d3QN}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.qn_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>PW QN changed from:  " + 
+                "#{self.qn_was}" + "    to  " + "#{self.qn}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.status_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Status changed from:  " + 
+                "#{self.status_was}" + "    to  " + "#{self.status}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.owner_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Owner changed from:  " + 
+                "#{self.owner_was}" + "    to  " + "#{self.owner}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.product_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Product changed from:  " + 
+                "#{self.product_was}" + "    to  " + "#{self.product}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.program_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Program changed from:  " + 
+                "#{self.program_was}" + "    to  " + "#{self.program}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.removalLocation_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Removal location changed from:  " + 
+                "#{self.removalLocation_was}" + "    to  " + "#{self.removalLocation}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
+        if self.removalDate_changed?
+            then 
+                timeNow = Time.now
+                self.fullChangelog = "<br>Removal date changed from:  " + 
+                "#{self.removalDate_was}" + "    to  " + "#{self.removalDate}" + 
+                " on " + "#{timeNow.month} / " + 
+                "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
+                "#{self.fullChangelog}"
+        end
         if self.serialNum_changed?
             then 
                 timeNow = Time.now
                 self.fullChangelog = "<br>Serial number changed from:  " + 
-                "#{self.serialNum_was}" + " to  " + "#{self.serialNum}" + 
+                "#{self.serialNum_was}" + "    to  " + "#{self.serialNum}" + 
                 " on " + "#{timeNow.month} / " + 
                 "#{timeNow.day} / " + "#{timeNow.year} " + "</br>" +
                 "#{self.fullChangelog}"
