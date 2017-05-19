@@ -32,6 +32,8 @@ class RecordsController < ApplicationController
                                            params[:record][:supplierQuery],
                                            params[:record][:statusQuery]).order(:product, :removalDate)
     end
+    
+    convert_to_excel_option
   end
   
   # GET /records/1
@@ -94,14 +96,34 @@ class RecordsController < ApplicationController
       @record = Record.find(params[:id])
     end
     
-    # Each function that calls this MUST also have a corresponding xlsx view
     def convert_to_excel_option
       respond_to do |format|
-      format.html
-      format.csv { render text: @records.to_csv }
-      format.xlsx
+        format.html 
+        format.csv { render text: @records.to_csv }
+        format.xlsx do
+          send_excel
+        end
+      end
     end
     
+    def send_excel
+      p = Axlsx::Package.new
+        wb = p.workbook
+        wb.add_worksheet(name: "Records") do |sheet|
+          sheet.add_row ["Serial Number", "Removal Date", "Removal Location", 
+          "Program", "Product", "Part Number", "Supplier", "Owner", "Status", 
+          "PW QN", "UTAS D3 QN", "UTAS V2 QN", "PW PO", "UTAS PO", 
+          "Action Required", "Removal Reason", "Comments", "Resolved?"]
+          @records.each do |record|
+            sheet.add_row [record.serialNum, record.removalDate, 
+              record.removalLocation, record.program, record.product, 
+              record.partNum, record.supplier, record.owner, record.status, 
+              record.qn, record.d3QN, record.v2QN, record.pwPO, record.utasPO, 
+              record.actionRequiredBy, record.removalReason, record.comments, 
+              record.resolved]
+          end
+        end
+      send_data p.to_stream.read, type: "application/xlsx", filename: "filename.xlsx"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

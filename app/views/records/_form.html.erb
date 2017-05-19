@@ -71,7 +71,7 @@
         <%= select("record", "supplier", (Product.all.collect { |p| p.prodSupplier}).uniq.sort , {include_blank: true}) %>
       </td>
       <td class="field">
-        <%= select("record", "supplier", (Product.all.collect { |p| p.prodUTASowners}).uniq.sort , {include_blank: true}) %>
+        <%= select("record", "owner", (Product.all.collect { |p| p.prodUTASowners}).uniq.sort , {include_blank: true}) %>
       </td>
       <td class="field">
         <%= select("record", "status", Record::STATUSES, {include_blank: true}) %>
