@@ -1,10 +1,12 @@
-<%= form_for(record) do |f| %>
-  <% if record.errors.any? %>
+<script src="records.js.coffe"></script>
+
+<%= form_for(@record) do |f| %>
+  <% if @record.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
 
       <ul>
-      <% record.errors.full_messages.each do |message| %>
+      <% @record.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -63,19 +65,19 @@
     <tr>
       <td class="field">
         <%= select("record", "product", (Product.all.collect { |p| p.prodName}).uniq.sort, 
-                   {include_blank: true}, { id: 'part_name_select' }) %>
+                   {include_blank: true}, { class: 'part_name_select' }) %>
       </td>
       <td class="field">
-        <%= select("record", "partNum", (Product.all.collect { |p| p.prodNum}).uniq.sort, 
-                   {include_blank: true}, { id: 'part_num_select' }) %>
+        <%= select("record", "partNum", @partNums, 
+                   {include_blank: true}, { class: 'part_num_select' }) %>
       </td>
       <td class="field">
-        <%= select("record", "supplier", (Product.all.collect { |p| p.prodSupplier}).uniq.sort, 
-                   {include_blank: true}, { id: 'part_supplier_select' }) %>
+        <%= select("record", "supplier", @partSuppliers, 
+                   {include_blank: true}, { class: 'part_supplier_select' }) %>
       </td>
       <td class="field">
-        <%= select("record", "owner", (Product.all.collect { |p| p.prodUTASowners}).uniq.sort, 
-                   {include_blank: true}, { id: 'part_owner_select' }) %>
+        <%= select("record", "owner", @partOwners, 
+                   {include_blank: true}, { class: 'part_owner_select' }) %>
       </td>
       <td class="field">
         <%= select("record", "status", Record::STATUSES, {include_blank: true}) %>
@@ -85,7 +87,7 @@
   
   <div id="prodPathForm">
    <%= link_to("Don't see a product or associated part number here? View, edit, 
-       and add to the list of parts the database tracks", products_path) %>
+                and add to the list of parts the database tracks", products_path) %>
   </div>
 
   <table class="boo">

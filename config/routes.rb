@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get 'search' => 'records#search'
   get 'records/search'
   
-  resources :records
+  resources :records do
+    collection do
+      get 'narrow_choices', to: "records#narrow_choices"
+    end 
+  end
+  
   root 'records#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

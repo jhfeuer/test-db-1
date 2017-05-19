@@ -47,10 +47,22 @@ class RecordsController < ApplicationController
   # GET /records/new
   def new
     @record = Record.new
+    @partNums = (Product.all.collect { |p| p.prodNum}).uniq.sort
+    @partSuppliers = (Product.all.collect { |p| p.prodSupplier}).uniq.sort
+    @partOwners = (Product.all.collect { |p| p.prodUTASowners}).uniq.sort
   end
-
+  
+  def narrow_choices
+    @partNums = Product.numAssociatedWithPart(params[:product_choice]).collect{|p| p.prodNum}.uniq.sort
+    @partSuppliers = Product.numAssociatedWithPart(params[:product_choice]).collect{|p| p.prodNum}.uniq.sort
+    @partOwners = Product.numAssociatedWithPart(params[:product_choice]).collect{|p| p.prodNum}.uniq.sort
+  end
+  
   # GET /records/1/edit
   def edit
+    @partNums = (Product.all.collect { |p| p.prodNum}).uniq.sort
+    @partSuppliers = (Product.all.collect { |p| p.prodSupplier}).uniq.sort
+    @partOwners = (Product.all.collect { |p| p.prodUTASowners}).uniq.sort
   end
 
   # POST /records

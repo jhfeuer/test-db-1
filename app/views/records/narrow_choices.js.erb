@@ -1,0 +1,14 @@
+$('.part_num_select').empty();
+<% @partNums.each do |partNum| %>
+  $('.part_num_select').append($('<option value="<%= partNum %>"><%= partNum %></option>'));
+<% end %>
+
+$('.part_supplier_select').empty();
+<% @partSuppliers.each do |partSupplier| %>
+  $('.part_supplier_select').append($('<option value="<%= partSupplier %>"><%= partSupplier %></option>'));
+<% end %>
+
+$('.part_owner_select').empty()
+<% @partOwners.each do |partOwner| %>
+  $('.part_owner_select').append($('<option value="<%= partOwner %>"><%= partOwner %></option>'));
+<% end %>
