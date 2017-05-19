@@ -62,16 +62,20 @@
     </tr>
     <tr>
       <td class="field">
-        <%= select("record", "product", (Product.all.collect { |p| p.prodName}).uniq.sort , {include_blank: true}) %>
+        <%= select("record", "product", (Product.all.collect { |p| p.prodName}).uniq.sort, 
+                   {include_blank: true}, { id: 'part_name_select' }) %>
       </td>
       <td class="field">
-        <%= select("record", "partNum", (Product.all.collect { |p| p.prodNum}).uniq.sort , {include_blank: true}) %>
+        <%= select("record", "partNum", (Product.all.collect { |p| p.prodNum}).uniq.sort, 
+                   {include_blank: true}, { id: 'part_num_select' }) %>
       </td>
       <td class="field">
-        <%= select("record", "supplier", (Product.all.collect { |p| p.prodSupplier}).uniq.sort , {include_blank: true}) %>
+        <%= select("record", "supplier", (Product.all.collect { |p| p.prodSupplier}).uniq.sort, 
+                   {include_blank: true}, { id: 'part_supplier_select' }) %>
       </td>
       <td class="field">
-        <%= select("record", "owner", (Product.all.collect { |p| p.prodUTASowners}).uniq.sort , {include_blank: true}) %>
+        <%= select("record", "owner", (Product.all.collect { |p| p.prodUTASowners}).uniq.sort, 
+                   {include_blank: true}, { id: 'part_owner_select' }) %>
       </td>
       <td class="field">
         <%= select("record", "status", Record::STATUSES, {include_blank: true}) %>

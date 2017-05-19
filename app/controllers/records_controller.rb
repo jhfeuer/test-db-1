@@ -10,6 +10,7 @@ class RecordsController < ApplicationController
     convert_to_excel_option
   end
   
+  # Resolved records kept around for future analysis/charts/etc
   def resolved
     @records = Record.where(resolved: true)
     @records = @records.order(:product, :removalDate)
@@ -17,6 +18,7 @@ class RecordsController < ApplicationController
     convert_to_excel_option
   end
 
+  # Active refers to records that still need to be tracked
   def active
     @records = Record.where(resolved: false)
     @records = @records.order(:product, :removalDate)
@@ -24,6 +26,7 @@ class RecordsController < ApplicationController
     convert_to_excel_option
   end
   
+  # Supports combined searches, excel export will export only the records in the current view (params persist)
   def search
     @records = Record.all.order(:product, :removalDate)
     if params.has_key? :record
@@ -57,7 +60,7 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to @record, notice: 'Record was successfully created.' }
+        format.html { redirect_to @record, notice: 'Return information was successfully created.' }
         format.json { render :show, status: :created, location: @record }
       else
         format.html { render :new }
@@ -71,7 +74,7 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to @record, notice: 'Record was successfully updated.' }
+        format.html { redirect_to @record, notice: 'Return information was successfully updated.' }
         format.json { render :show, status: :ok, location: @record }
       else
         format.html { render :edit }
@@ -82,6 +85,7 @@ class RecordsController < ApplicationController
 
   # DELETE /records/1
   # DELETE /records/1.json
+  # FIXME : Disallow permanent deletions (maybe)
   def destroy
     @record.destroy
     respond_to do |format|
@@ -99,13 +103,15 @@ class RecordsController < ApplicationController
     def convert_to_excel_option
       respond_to do |format|
         format.html 
-        format.csv { render text: @records.to_csv }
+        # FIXME : C'mon Jacob, you can do better
+        format.csv { render text: @records.to_csv( @records ) }
         format.xlsx do
           send_excel
         end
       end
     end
     
+    # This converts the current set of records, @records, to an xlsx format, and sends it to the stream
     def send_excel
       p = Axlsx::Package.new
         wb = p.workbook
@@ -123,7 +129,9 @@ class RecordsController < ApplicationController
               record.resolved]
           end
         end
-      send_data p.to_stream.read, type: "application/xlsx", filename: "filename.xlsx"
+      
+      # FIXME : Make filename change based on the view
+      send_data p.to_stream.read, type: "application/xlsx", filename: "Returns_excel_export.xlsx"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

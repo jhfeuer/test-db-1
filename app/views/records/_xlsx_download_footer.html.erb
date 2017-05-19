@@ -1,5 +1,5 @@
 <p>
   Download:
-  <%= link_to "CSV", url_for(:format=>"csv") %> | 
+  <%= link_to "CSV", url_for(request.parameters.merge({:format => "csv"})) %> | 
   <%= link_to "Excel", url_for(request.parameters.merge({:format => "xlsx"})) %>
 </p>

@@ -16,10 +16,12 @@ class Record < ApplicationRecord
     validates :owner, length: {maximum: 16}
     validates :partNum, length: {maximum: 16}
     
+    # These are the possible statuses supported in the form
+    # FIXME : Allow users to add/subtract from this list
     STATUSES = [ "Waiting to ship", "Shipped", "Received" ]
     
     # This converts to csv with explicit column headings and each member explicit as well
-    def self.to_csv(options = {})
+    def self.to_csv(records = self.all, options = {})
         
         all_headers = Array.[]("Serial Number", "Removal Date", 
         "Removal Location", "Program", "Product", "Part Number", "Supplier", 
@@ -33,12 +35,13 @@ class Record < ApplicationRecord
         
         CSV.generate(options) do |csv|
             csv << all_headers
-            all.each do |record|
+            records.each do |record|
                 csv << record.attributes.values_at(*cols_of_interest)
             end
         end
     end
     
+    # defaults are set so the log_changes function does not break
     def set_defaults
         self.fullChangelog = ""
         self.serialNum = "" if !self.serialNum
@@ -62,6 +65,7 @@ class Record < ApplicationRecord
     
     # I tried to come up with a fancier/refactored way to do this but couldn't 
     # figure it out while still using _was
+    # FIXME : Take a second look (use a helper that takes the 3 as arguments?)
     def log_changes 
         if self.comments_changed?
             then 
