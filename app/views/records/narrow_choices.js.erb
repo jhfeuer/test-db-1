@@ -10,5 +10,5 @@ $('.part_supplier_select').empty();
 
 $('.part_owner_select').empty()
 <% @partOwners.each do |partOwner| %>
-  $('.part_owner_select').append($('<option value="<%= partOwner %>"><%= partOwner %></option>'));
+  $('.part_owner_select').append($('<option <%= partOwner %></option>'));
 <% end %>
